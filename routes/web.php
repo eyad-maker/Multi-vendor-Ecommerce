@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Home\HomeSliderController;
+use App\Http\Controllers\Home\AboutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,5 +52,14 @@ Route::controller(HomeSliderController::class)->group(function () {
 
 
 });
+// About Page All Route 
+Route::controller(AboutController::class)->group(function () {
+    Route::post('/update/about', 'UpdateAbout')->name('update.about');
+    Route::get('/about/page', 'AboutPage')->name('about.page');
+    Route::get('/about', 'HomeAbout')->name('home.about');
+
+
+});
+
 
 require __DIR__.'/auth.php';
